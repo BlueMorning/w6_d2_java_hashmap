@@ -9,7 +9,7 @@ public class BookTest {
 
     @Before
     public void Before(){
-        myBook = new Book("Black Box Thinking");
+        myBook = new Book("Black Box Thinking", "Essay");
     }
 
 
@@ -17,6 +17,12 @@ public class BookTest {
     public void hasTitle(){
         assertEquals("Black Box Thinking", myBook.getTitle());
     }
+
+    @Test
+    public void hasGenre(){
+        assertEquals("Essay", myBook.getGenre());
+    }
+
 
 
 

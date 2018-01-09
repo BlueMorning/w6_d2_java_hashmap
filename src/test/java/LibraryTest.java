@@ -1,8 +1,9 @@
+import com.sun.xml.internal.xsom.impl.scd.Iterators;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Timer;
+import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,12 +14,14 @@ public class LibraryTest {
     Borrower borrower;
     Book shining;
 
+    String[] genres = {"mystery", "novel", "thriller", "history"};
+
     @Before
     public void before(){
         lib         = new Library(1000);
         books       = new ArrayList<>();
         borrower    = new Borrower();
-        shining     = new Book("shining");
+        shining     = new Book("shining", "mystery");
     }
 
 
@@ -29,7 +32,7 @@ public class LibraryTest {
 
     @Test
     public void canAddBook(){
-        lib.addBook(new Book("Jason Bourne"));
+        lib.addBook(new Book("Jason Bourne", "thriller"));
         assertEquals(1, lib.getBooksCount());
     }
 
@@ -42,7 +45,7 @@ public class LibraryTest {
     public void canAddBookBeyondCapacity(){
 
         for(int i = 0; i < 2000; i++){
-            lib.addBook(new Book(String.format("%s", System.currentTimeMillis())));
+            lib.addBook(new Book(String.format("%s", System.currentTimeMillis()), genres[new Random().nextInt(genres.length)]));
         }
 
         assertEquals(lib.getCapacity(), lib.getBooksCount());

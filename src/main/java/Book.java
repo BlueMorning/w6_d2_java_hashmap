@@ -2,10 +2,12 @@ public class Book {
 
     private String title;
     private Boolean isAvailable;
+    private String genre;
 
-    public Book(String _title){
+    public Book(String _title, String genre){
         this.title       = _title;
         this.isAvailable = true;
+        this.genre       = genre;
     }
 
     public String getTitle() {
@@ -22,5 +24,9 @@ public class Book {
 
     public Boolean isAvailable(){
         return this.isAvailable;
+    }
+
+    public String getGenre() {
+        return genre;
     }
 }
