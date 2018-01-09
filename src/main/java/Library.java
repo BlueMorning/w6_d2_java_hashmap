@@ -26,5 +26,10 @@ public class Library {
     public int getCapacity() {
         return this.capacity;
     }
-    
+
+    public void lend(Book shining, Borrower borrower) {
+        shining.setAsLent();
+        borrower.borrowBook(shining);
+    }
+
 }

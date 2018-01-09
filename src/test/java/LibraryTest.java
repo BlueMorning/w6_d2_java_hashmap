@@ -10,12 +10,15 @@ public class LibraryTest {
 
     Library lib;
     ArrayList<Book> books;
-
+    Borrower borrower;
+    Book shining;
 
     @Before
     public void before(){
-        lib     = new Library(1000);
-        books   = new ArrayList<>();
+        lib         = new Library(1000);
+        books       = new ArrayList<>();
+        borrower    = new Borrower();
+        shining     = new Book("shining");
     }
 
 
@@ -46,7 +49,12 @@ public class LibraryTest {
     }
 
 
-
+    @Test
+    public void canLendBook(){
+        this.lib.lend(shining, borrower);
+        assertEquals(false, shining.isAvailable());
+        assertEquals(1, borrower.getBooksCount());
+    }
 
 
 
