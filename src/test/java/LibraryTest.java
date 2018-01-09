@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
@@ -66,6 +67,30 @@ public class LibraryTest {
         assertEquals(0, borrower.getBooksCount());
     }
 
+    @Test
+    public void canCountBooksGenres(){
 
+        this.lib.addBook(new Book("a", genres[0]));
+        this.lib.addBook(new Book("b", genres[0]));
+        this.lib.addBook(new Book("c", genres[1]));
+        this.lib.addBook(new Book("d", genres[1]));
+        this.lib.addBook(new Book("e", genres[1]));
+        this.lib.addBook(new Book("f", genres[2]));
+        this.lib.addBook(new Book("g", genres[2]));
+        this.lib.addBook(new Book("h", genres[3]));
+        this.lib.addBook(new Book("i", genres[3]));
+        this.lib.addBook(new Book("j", genres[3]));
+        this.lib.addBook(new Book("k", genres[3]));
+
+
+        HashMap<String, Integer> booksCountByGenre = this.lib.countBooksByGenre();
+
+
+        assertEquals(2, booksCountByGenre.get(genres[0]).intValue());
+        assertEquals(3, booksCountByGenre.get(genres[1]).intValue());
+        assertEquals(2, booksCountByGenre.get(genres[2]).intValue());
+        assertEquals(4, booksCountByGenre.get(genres[3]).intValue());
+
+    }
 
 }
