@@ -15,4 +15,8 @@ public class Borrower {
     public void borrowBook(Book book) {
         this.books.add(book);
     }
+
+    public void giveBackBook(Book book) {
+        this.books.remove(book);
+    }
 }

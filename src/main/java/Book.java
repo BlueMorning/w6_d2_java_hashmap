@@ -12,8 +12,12 @@ public class Book {
         return this.title;
     }
 
-    public void setAsLent() {
+    public void setAsNotAvailable() {
         this.isAvailable = false;
+    }
+
+    public void setAsAvailable() {
+        this.isAvailable = true;
     }
 
     public Boolean isAvailable(){

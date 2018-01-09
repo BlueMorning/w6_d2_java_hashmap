@@ -56,6 +56,13 @@ public class LibraryTest {
         assertEquals(1, borrower.getBooksCount());
     }
 
+    @Test
+    public void canGiveBackBook(){
+        this.lib.giveBackBook(shining, borrower);
+        assertEquals(true, shining.isAvailable());
+        assertEquals(0, borrower.getBooksCount());
+    }
+
 
 
 }

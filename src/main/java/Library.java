@@ -28,8 +28,12 @@ public class Library {
     }
 
     public void lend(Book shining, Borrower borrower) {
-        shining.setAsLent();
+        shining.setAsNotAvailable();
         borrower.borrowBook(shining);
     }
 
+    public void giveBackBook(Book shining, Borrower borrower) {
+        shining.setAsAvailable();
+        borrower.giveBackBook(shining);
+    }
 }
