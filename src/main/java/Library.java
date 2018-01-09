@@ -12,13 +12,15 @@ public class Library {
     }
 
 
-    public Object getBooksCount() {
+    public int getBooksCount() {
         return books.size();
     }
 
 
     public void addBook(Book newBook) {
-        this.books.add(newBook);
+        if(this.getBooksCount() < this.capacity) {
+            this.books.add(newBook);
+        }
     }
 
     public int getCapacity() {
