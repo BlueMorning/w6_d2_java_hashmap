@@ -13,7 +13,7 @@ public class LibraryTest {
 
     @Before
     public void before(){
-        lib     = new Library();
+        lib     = new Library(1000);
         books   = new ArrayList<>();
     }
 
@@ -27,6 +27,11 @@ public class LibraryTest {
     public void canAddBook(){
         lib.addBook(new Book("Jason Bourne"));
         assertEquals(1, lib.getBooksCount());
+    }
+
+    @Test
+    public void hasCapacity(){
+        assertEquals(1000, lib.getCapacity());
     }
 
 
